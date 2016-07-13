@@ -45,13 +45,15 @@ for i in range(0, len(outData)):
     })
 if (verbose): print('[DONE]')
 
+dirName = lpfile.rsplit('/', 1)[1].split('.')[0]
+
 if (verbose): print('Beginning object extraction')
 with open(hpfile, 'r+b') as inf:
     for i in range(0, len(outObjects)):
         if (outObjects[i]['filename'] != "N/A" and outObjects[i]['filename']):
-            filepath = outObjects[i]['filename'].replace('\\\\', './source/').replace('\\', '/')
+            filepath = outObjects[i]['filename'].replace('\\\\', './' + dirName + '/').replace('\\', '/')
         else:
-            filepath = './source/unsorted/' + outObjects[i]['name']
+            filepath = './' + dirName + '/unsorted/' + outObjects[i]['name']
         if verbose:
             print("Extracting {} {} from 0x{} for {} Bytes".format(
                 outObjects[i]['type'],
