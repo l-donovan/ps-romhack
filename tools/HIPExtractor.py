@@ -1,5 +1,14 @@
 from __future__ import print_function
 
+#
+# HIPExtractor
+# HIP/HOP extractor
+# (c) 2016 Luke Donovan
+#
+# Usage: "python HIPExtractor.py file"
+# "file" can be any HIP or HOP file
+#
+
 import binascii
 import sys
 

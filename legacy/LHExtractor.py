@@ -2,7 +2,7 @@ from __future__ import print_function
 
 #
 # LHExtractor
-# HIP/HOP extractor using LIP/LOP manifests
+# HIP/HOP extractor using LIP/LOP logs
 # (c) 2016 Luke Donovan
 #
 # Usage: "python LHExtractor.py file [-v / --verbose]"
