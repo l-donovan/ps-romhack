@@ -13,7 +13,7 @@ import sys
 import re
 import os
 
-regString = r'AID: 0x([0-9a-fA-F]{8})\s+\((\w+)\)\r\n{\r\n\s+Type:\s+(\w+)\r\n\s+Size:\s+(\d+)\r\n\s+Offset:\s+(\d+)\r\n\s+Plus:\s+(\d+)\r\n\s+Check:\s+0x([0-9a-fA-F]{8})\r\n\s+Filename:\s+([^\s]+)\r\n\s+Flags:\s+(.+)\r\n}'
+regString = r'AID: 0x([0-9a-fA-F]{8})\s+\((\w+)\)\r\n{\r\n\s+Type:\s+(\w+)\s+\r\n\s+Size:\s+(\d+)\r\n\s+Offset:\s+(\d+)\r\n\s+Plus:\s+(\d+)\r\n\s+Check:\s+0x([0-9a-fA-F]{8})\r\n\s+Filename:\s+([^\s]+)\r\n\s+Flags:\s+(.+)\r\n}'
 outObjects = []
 
 lpfile = sys.argv[1][:-3] + 'L' + sys.argv[1][-2] + 'P'
