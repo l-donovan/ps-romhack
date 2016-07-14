@@ -170,10 +170,6 @@ asset_data = readBytes(toInt(dpak_header_length))                   #       [byt
 
 print('[DONE]')
 
-#
-# The actual extraction will be done here eventually
-#
-
 dirName = infile.rsplit('/', 1)[1].split('.')[0]
 
 print('Extracting assets from archive...', end='')
