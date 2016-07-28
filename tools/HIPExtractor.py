@@ -15,6 +15,9 @@ import sys
 
 infile = sys.argv[1]
 
+if ('--verbose' in sys.argv or '-v' in sys.argv): verbose = True
+else: verbose = False
+
 offset = 0
 def readBytes(byteCount):
     global offset
@@ -172,13 +175,25 @@ print('[DONE]')
 
 dirName = infile.rsplit('/', 1)[1].split('.')[0]
 
-print('Extracting assets from archive...', end='')
+if verbose: e = '\n'
+else: e = ''
+
+print('Extracting assets from archive...', end=e)
 for i in range(0, len(files)):
     filepath = './' + dirName + '/' + toChar(files[i]['file_details_filename'])
+    if verbose:
+        print("Extracting {} ({}) to {} (OFFSET: {} SIZE: {}B)".format(
+            toChar(files[i]['file_details_filename']),
+            toChar(files[i]['file_type_code']),
+            filepath,
+            toInt(files[i]['file_offset']),
+            toInt(files[i]['file_size'])
+        ), end=' ')
     if not os.path.exists(filepath.rsplit('/', 1)[0]):
         os.makedirs(filepath.rsplit('/', 1)[0])
     with open(filepath, 'a+') as of:
         _offset = toInt(files[i]['file_offset'])
         _size = toInt(files[i]['file_size'])
         of.write(binascii.unhexlify(''.join(readBytesAtOffset(_offset, _size))))
+    if verbose: print("[DONE]")
 print('[DONE]')
